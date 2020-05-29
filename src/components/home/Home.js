@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class Home extends Component {
   render() {
     return (
-      <address>
-        Visit Us at the Nashville North Location
-        <br />500 Puppy Way
-      </address>
-    )
+      <div class="container-main">
+        <div class="section-content">
+          <p>
+            What do you call a pile of kittens?
+            <br />A meowntain.
+          </p>
+        </div>
+      </div>
+    );
   }
 }
 
-export default Home
+export default Home;

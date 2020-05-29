@@ -5,18 +5,14 @@ class LocationCard extends Component {
   render() {
     return (
       <div class="container-main">
-        <div class="section-content">
-          <h2>
-            Location
+        <div class="section-content">          
+          <h4>
             <br />
-          </h2>
-          <address>
-            Visit Us at the Nashville North Location            
+            Visit Us at the {this.props.locationProp.name}           
             <br />
-            500 Puppy Way
-          </address>
-        </div>
-        <div class="container-cards">
+            {this.props.locationProp.address}
+          </h4>
+          <button type="button" onClick={() => this.props.closeLocation(this.props.locationProp.id)}>Close it down</button>
         </div>
         </div>
     );

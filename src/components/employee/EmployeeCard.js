@@ -7,16 +7,9 @@ class EmployeeCard extends Component {
       <div class="container-main">
         <div class="section-content">
           <h2>
-            Employees
-            <br />
-            <small>Jordan Castalloe</small>
-            <br />
-            <small>Tommy Spurlock</small>
-            <br />
-            <small>Sarah Brooks</small>
+            <small>{this.props.employeeProp.name}</small>
           </h2>
-        </div>
-        <div class="container-cards">
+          <button type="button" onClick={() => this.props.fireEmployee(this.props.employeeProp.id)}>Bye Felicia</button>
         </div>
       </div>
     );
