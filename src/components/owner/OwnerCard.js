@@ -7,12 +7,10 @@ class OwnerCard extends Component {
       <div class="container-main">
         <div class="section-content">
           <h2>
-            Owners
             <br />
-            <small>Mike Hotchkiss</small>
+            <small>{this.props.ownerProp.name}</small>
           </h2>
-        </div>
-        <div class="container-cards">
+          <button type="button" onClick={() => this.props.removeOwner(this.props.ownerProp.id)}>See ya later</button>
         </div>
       </div>
     );
