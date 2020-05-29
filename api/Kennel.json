@@ -1,0 +1,47 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Sheperd"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Mike Hotchkiss",
+      "phoneNumber": "615-555-5555"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jordan Castelloe"
+    },
+    {
+      "id": 2,
+      "name": "Tommy Spurlock"
+    },
+    {
+      "id": 3,
+      "name": "Sarah Brooks"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville South",
+      "address": "500 Puppy Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville North",
+      "address": "500 Kitten Way"
+    }
+  ]
+}
