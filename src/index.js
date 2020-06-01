@@ -6,6 +6,8 @@ import Kennel from './components/Kennel'
 // import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom"
 
+//router --- allows you to type website into bar
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>

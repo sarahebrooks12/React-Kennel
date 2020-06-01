@@ -6,6 +6,11 @@ import AnimalList from './animal/AnimalList'
 import LocationList from './locations/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnerList from './owner/OwnerList'
+import AnimalDetail from './animal/AnimalDetail'
+import EmployeeDetail from './employee/EmployeeDetail'
+import LocationDetail from './locations/LocationDetail'
+import OwnerDetail from './owner/OwnerDetail'
+
 
 
 class ApplicationViews extends Component {
@@ -16,18 +21,34 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
-        <Route path="/animals" render={(props) => {
+        <Route exact path="/animals" render={(props) => {
           return <AnimalList />
         }} />
-         <Route path="/locations" render={(props) => {
+         <Route exact path="/locations" render={(props) => {
           return <LocationList />
         }} />
-         <Route path="/employees" render={(props) => {
+         <Route exact path="/employees" render={(props) => {
           return <EmployeeList />
         }} />
-         <Route path="/owners" render={(props) => {
+         <Route exact path="/owners" render={(props) => {
           return <OwnerList />
         }} />
+<Route path="/animals/:animalId(\d+)" render={(props) => {
+  // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
+  return <AnimalDetail animalId={parseInt(props.match.params.animalId)}/>
+}} />
+<Route path="/employees/:employeeId(\d+)" render={(props) => {
+  // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
+  return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}/>
+}} />
+<Route path="/locations/:locationId(\d+)" render={(props) => {
+  // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
+  return <LocationDetail locationId={parseInt(props.match.params.locationId)}/>
+}} />
+<Route path="/owners/:ownerId(\d+)" render={(props) => {
+  // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
+  return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}/>
+}} />
       </React.Fragment>
     )
   }
