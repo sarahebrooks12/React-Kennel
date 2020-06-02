@@ -5,7 +5,8 @@ import './OwnerDetail.css'
 class OwnerDetail extends Component {
 
   state = {
-      name: ""
+      name: "",
+      phoneNumber: ""
   }
 
   componentDidMount(){
@@ -14,7 +15,8 @@ class OwnerDetail extends Component {
     OwnerManager.get(this.props.ownerId)
     .then((owner) => {
       this.setState({
-        name: owner.name
+        name: owner.name,
+        phoneNumber: owner.phoneNumber
       });
     });
   }
@@ -24,6 +26,7 @@ class OwnerDetail extends Component {
       <div className="card">
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <p>{this.state.phoneNumber}</p>
         </div>
       </div>
     );

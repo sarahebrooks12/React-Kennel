@@ -39,6 +39,11 @@
       "name": "Stitch",
       "breed": "Black Cat",
       "id": 8
+    },
+    {
+      "name": "Bumpus",
+      "breed": "Brown Dog",
+      "id": 9
     }
   ],
   "owners": [
@@ -46,6 +51,16 @@
       "id": 1,
       "name": "Mike Hotchkiss",
       "phoneNumber": "615-555-5555"
+    },
+    {
+      "name": "Swathi Mukkamala",
+      "phoneNumber": "615-555-5552",
+      "id": 2
+    },
+    {
+      "name": "Sarah Hacker",
+      "phoneNumber": "615-555-5552",
+      "id": 3
     }
   ],
   "employees": [

@@ -10,7 +10,10 @@ import AnimalDetail from "./animal/AnimalDetail";
 import EmployeeDetail from "./employee/EmployeeDetail";
 import LocationDetail from "./locations/LocationDetail";
 import OwnerDetail from "./owner/OwnerDetail";
-import AnimalForm from "./animal/AnimalForm"
+import LocationForm from "./locations/LocationForm";
+import AnimalForm from "./animal/AnimalForm";
+import EmployeeForm from "./employee/EmployeeForm";
+import OwnerForm from "./owner/OwnerForm";
 
 class ApplicationViews extends Component {
   render() {
@@ -23,6 +26,9 @@ class ApplicationViews extends Component {
             return <Home />;
           }}
         />
+        
+       {/* ANIMALS */}
+
         <Route
           exact
           path="/animals"
@@ -30,28 +36,7 @@ class ApplicationViews extends Component {
             return <AnimalList {...props}/>;
           }}
         />
-        <Route
-          exact
-          path="/locations"
-          render={(props) => {
-            return <LocationList />;
-          }}
-        />
-        <Route
-          exact
-          path="/employees"
-          render={(props) => {
-            return <EmployeeList />;
-          }}
-        />
-        <Route
-          exact
-          path="/owners"
-          render={(props) => {
-            return <OwnerList />;
-          }}
-        />
-        <Route
+         <Route
           path="/animals/:animalId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
@@ -60,18 +45,23 @@ class ApplicationViews extends Component {
             );
           }}
         />
-        <Route
-          path="/employees/:employeeId(\d+)"
+          <Route
+          path="/animals/new"
           render={(props) => {
-            // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
-            return (
-              <EmployeeDetail
-                employeeId={parseInt(props.match.params.employeeId)}
-              />
-            );
+            return <AnimalForm {...props}/>;
           }}
         />
+
+        {/* LOCATIONS */}
+
         <Route
+          exact
+          path="/locations"
+          render={(props) => {
+            return <LocationList {...props}/>;
+          }}
+        />
+          <Route
           path="/locations/:locationId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
@@ -82,6 +72,49 @@ class ApplicationViews extends Component {
             );
           }}
          />
+             <Route
+          path="/locations/new"
+          render={(props) => {
+            return <LocationForm {...props}/>;
+          }}
+        />
+
+        {/* EMPLOYEES */}
+
+        <Route
+          exact
+          path="/employees"
+          render={(props) => {
+            return <EmployeeList {...props}/>;
+          }}
+        />
+            <Route
+          path="/employees/:employeeId(\d+)"
+          render={(props) => {
+            // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
+            return (
+              <EmployeeDetail
+                employeeId={parseInt(props.match.params.employeeId)}
+              />
+            );
+          }}
+        />
+             <Route
+          path="/employees/new"
+          render={(props) => {
+            return <EmployeeForm {...props}/>;
+          }}
+        />
+
+        {/* OWNERS */}
+
+        <Route
+          exact
+          path="/owners"
+          render={(props) => {
+            return <OwnerList {...props}/>;
+          }}
+        />
         <Route
           path="/owners/:ownerId(\d+)"
           render={(props) => {
@@ -91,11 +124,10 @@ class ApplicationViews extends Component {
             );
           }}
         />
-        {/* shiny new path */}
-        <Route
-          path="/animals/new"
+             <Route
+          path="/owners/new"
           render={(props) => {
-            return <AnimalForm {...props}/>;
+            return <OwnerForm {...props}/>;
           }}
         />
       </React.Fragment>
