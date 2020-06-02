@@ -25,6 +25,7 @@ class AnimalForm extends Component {
             window.alert("Please input an animal name and breed");
         } else {
             this.setState({ loadingStatus: true });
+            // matches what is in the database
             const animal = {
                 name: this.state.animalName,
                 breed: this.state.breed,

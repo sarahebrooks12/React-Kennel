@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
-import './AnimalForm.css'
+import OwnerManager from '../../modules/OwnerManager';
+import './OwnerForm.css'
 
 
-class AnimalForm extends Component {
+class OwnerForm extends Component {
     state = {
-        animalName: "",
-        breed: "",
+        name: "",
+        phoneNumber: "",
         loadingStatus: false,
     };
 // create information --- grab information user is entering and changing state in that component
@@ -18,21 +18,21 @@ class AnimalForm extends Component {
 
     /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
     */
-    constructNewAnimal = evt => {
+    constructNewOwner = evt => {
         //this stops from loading on page load
         evt.preventDefault();
-        if (this.state.animalName === "" || this.state.breed === "") {
-            window.alert("Please input an animal name and breed");
+        if (this.state.name === "" || this.state.phoneNumber === "") {
+            window.alert("Please input a name and phone number");
         } else {
             this.setState({ loadingStatus: true });
-            const animal = {
-                name: this.state.animalName,
-                breed: this.state.breed,
+            const owner = {
+                name: this.state.name,
+                phoneNumber: this.state.phoneNumber,
             };
 
             // Create the animal and redirect user to animal list
-            AnimalManager.post(animal)
-            .then(() => this.props.history.push("/animals"));
+            OwnerManager.post(owner)
+            .then(() => this.props.history.push("/owners"));
         }
     };
 
@@ -47,24 +47,24 @@ class AnimalForm extends Component {
                         type="text"
                         required
                         onChange={this.handleFieldChange}
-                        id="animalName"
-                        placeholder="Animal name"
+                        id="name"
+                        placeholder="Owner's Name"
                         />
-                        <label htmlFor="animalName">Name</label>
+                        <label htmlFor="name">Name</label>
                         <input
                         type="text"
                         required
                         onChange={this.handleFieldChange}
-                        id="breed"
-                        placeholder="Breed"
+                        id="phoneNumber"
+                        placeholder="Phone Number"
                         />
-                        <label htmlFor="breed">Breed</label>
+                        <label htmlFor="phoneNumber">Phone Number</label>
                     </div>
                     <div className="alignRight">
                         <button
                         type="button"
                         disabled={this.state.loadingStatus}
-                        onClick={this.constructNewAnimal}
+                        onClick={this.constructNewOwner}
                         >Submit</button>
                     </div>
                 </fieldset>
@@ -74,4 +74,4 @@ class AnimalForm extends Component {
     }
 }
 
-export default AnimalForm
+export default OwnerForm

@@ -28,6 +28,14 @@ import React, { Component } from 'react'
         console.log("Owner LIST: Render");
 
         return(
+            <>
+      <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {this.props.history.push("/owners/new")}}>
+            Add Owner
+        </button>
+      </section>
             <div className="container-cards">
                 {/* forEach doesn't return - map returns a component to render JSX */}
         {this.state.owners.map(currentOwnerInLoop => { 
@@ -35,6 +43,7 @@ import React, { Component } from 'react'
             // render an Owner card with current Owner in loop 
             return <OwnerCard key={currentOwnerInLoop.id} ownerProp={currentOwnerInLoop} removeOwner={this.removeOwner}/>})}
             </div>
+            </>
         )
     }
     removeOwner = id => {

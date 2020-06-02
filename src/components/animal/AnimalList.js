@@ -30,27 +30,31 @@ class AnimalList extends Component {
 
     return (
       <>
-<section className="section-content">
-  <button type="button"
-      className="btn"
-      onClick={() => {this.props.history.push("/animals/new")}}>
-      Admit Animal
-  </button>
-</section>
-      <div className="container-cards">
-        {/* forEach doesn't return - map returns a component to render JSX */}
-        {this.state.animals.map((currentAnimalInLoop) => {
-          // console.log("This is a current animal in the loop", currentAnimalInLoop)
-          // render an animal card with current animal in loop
-          return (
-            <AnimalCard
-              key={currentAnimalInLoop.id}
-              animalProp={currentAnimalInLoop}
-              deleteAnimal={this.deleteAnimal}
-            />
-          );
-        })}
-      </div>
+        <section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              this.props.history.push("/animals/new");
+            }}
+          >
+            Admit Animal
+          </button>
+        </section>
+        <div className="container-cards">
+          {/* forEach doesn't return - map returns a component to render JSX */}
+          {this.state.animals.map((currentAnimalInLoop) => {
+            // console.log("This is a current animal in the loop", currentAnimalInLoop)
+            // render an animal card with current animal in loop
+            return (
+              <AnimalCard
+                key={currentAnimalInLoop.id}
+                animalProp={currentAnimalInLoop}
+                deleteAnimal={this.deleteAnimal}
+              />
+            );
+          })}
+        </div>
       </>
     );
   }

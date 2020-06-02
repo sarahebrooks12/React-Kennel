@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
-import './AnimalForm.css'
+import EmployeeManager from '../../modules/EmployeeManager';
+import './EmployeeForm.css'
 
 
-class AnimalForm extends Component {
+class EmployeeForm extends Component {
     state = {
-        animalName: "",
-        breed: "",
+        name: "",
         loadingStatus: false,
     };
 // create information --- grab information user is entering and changing state in that component
@@ -18,21 +17,20 @@ class AnimalForm extends Component {
 
     /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
     */
-    constructNewAnimal = evt => {
+    constructNewEmployee = evt => {
         //this stops from loading on page load
         evt.preventDefault();
-        if (this.state.animalName === "" || this.state.breed === "") {
-            window.alert("Please input an animal name and breed");
+        if (this.state.name === "") {
+            window.alert("Please input a name");
         } else {
             this.setState({ loadingStatus: true });
-            const animal = {
-                name: this.state.animalName,
-                breed: this.state.breed,
+            const employee = {
+                name: this.state.name
             };
 
             // Create the animal and redirect user to animal list
-            AnimalManager.post(animal)
-            .then(() => this.props.history.push("/animals"));
+            EmployeeManager.post(employee)
+            .then(() => this.props.history.push("/employees"));
         }
     };
 
@@ -47,24 +45,16 @@ class AnimalForm extends Component {
                         type="text"
                         required
                         onChange={this.handleFieldChange}
-                        id="animalName"
-                        placeholder="Animal name"
+                        id="name"
+                        placeholder="Name"
                         />
-                        <label htmlFor="animalName">Name</label>
-                        <input
-                        type="text"
-                        required
-                        onChange={this.handleFieldChange}
-                        id="breed"
-                        placeholder="Breed"
-                        />
-                        <label htmlFor="breed">Breed</label>
+                        <label htmlFor="name">Name</label>
                     </div>
                     <div className="alignRight">
                         <button
                         type="button"
                         disabled={this.state.loadingStatus}
-                        onClick={this.constructNewAnimal}
+                        onClick={this.constructNewEmployee}
                         >Submit</button>
                     </div>
                 </fieldset>
@@ -74,4 +64,4 @@ class AnimalForm extends Component {
     }
 }
 
-export default AnimalForm
+export default EmployeeForm
