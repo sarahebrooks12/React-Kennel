@@ -29,6 +29,14 @@ class AnimalList extends Component {
     // console.log("ANIMAL LIST: Render");
 
     return (
+      <>
+<section className="section-content">
+  <button type="button"
+      className="btn"
+      onClick={() => {this.props.history.push("/animals/new")}}>
+      Admit Animal
+  </button>
+</section>
       <div className="container-cards">
         {/* forEach doesn't return - map returns a component to render JSX */}
         {this.state.animals.map((currentAnimalInLoop) => {
@@ -43,6 +51,7 @@ class AnimalList extends Component {
           );
         })}
       </div>
+      </>
     );
   }
 
