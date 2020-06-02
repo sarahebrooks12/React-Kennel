@@ -29,8 +29,17 @@
       "id": 6,
       "name": "Princess Shithead",
       "breed": "Spaniel"
+    },
+    {
+      "name": "Mia",
+      "breed": "Mutt",
+      "id": 7
+    },
+    {
+      "name": "Stitch",
+      "breed": "Black Cat",
+      "id": 8
     }
-
   ],
   "owners": [
     {
