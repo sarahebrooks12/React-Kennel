@@ -5,7 +5,8 @@ import './EmployeeDetail.css'
 class EmployeeDetail extends Component {
 
   state = {
-      name: ""
+      name: "",
+      loadingStatus: true
   }
 
   componentDidMount(){
@@ -15,15 +16,25 @@ class EmployeeDetail extends Component {
     .then((employee) => {
       this.setState({
         name: employee.name,
+        loadingStatus: false
       });
     });
   }
+
+  handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    this.setState({loadingStatus: true})
+    EmployeeManager.delete(this.props.employeeId)
+    .then(() => this.props.history.push("/employees"))
+}
+
 
   render() {
     return (
       <div className="card">
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
         </div>
       </div>
     );

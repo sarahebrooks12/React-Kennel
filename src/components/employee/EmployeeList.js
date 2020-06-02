@@ -48,7 +48,6 @@ class EmployeeList extends Component {
               <EmployeeCard
                 key={currentEmployeeInLoop.id}
                 employeeProp={currentEmployeeInLoop}
-                fireEmployee={this.fireEmployee}
               />
             );
           })}
@@ -56,16 +55,6 @@ class EmployeeList extends Component {
       </>
     );
   }
-
-  fireEmployee = (id) => {
-    EmployeeManager.delete(id).then(() => {
-      EmployeeManager.getAll().then((newEmployees) => {
-        this.setState({
-          employees: newEmployees,
-        });
-      });
-    });
-  };
 }
 
 export default EmployeeList;

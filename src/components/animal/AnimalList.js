@@ -50,7 +50,6 @@ class AnimalList extends Component {
               <AnimalCard
                 key={currentAnimalInLoop.id}
                 animalProp={currentAnimalInLoop}
-                deleteAnimal={this.deleteAnimal}
               />
             );
           })}
@@ -58,16 +57,6 @@ class AnimalList extends Component {
       </>
     );
   }
-
-  deleteAnimal = (id) => {
-    AnimalManager.delete(id).then(() => {
-      AnimalManager.getAll().then((newAnimals) => {
-        this.setState({
-          animals: newAnimals,
-        });
-      });
-    });
-  };
 }
 
 export default AnimalList;

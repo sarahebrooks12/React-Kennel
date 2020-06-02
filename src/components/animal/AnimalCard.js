@@ -20,11 +20,6 @@ class AnimalCard extends Component {
             <span className="card-petName">{this.props.animalProp.name}</span>
           </h3>
           <p>Breed: {this.props.animalProp.breed}</p>
-          <button
-            type="button"
-            onClick={() => this.props.deleteAnimal(this.props.animalProp.id)}>
-            Discharge
-          </button>
           <Link to={`/animals/${this.props.animalProp.id}`}>
             <button>Details</button>
           </Link>

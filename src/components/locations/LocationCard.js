@@ -13,7 +13,6 @@ class LocationCard extends Component {
             <br />
             {this.props.locationProp.address}
           </h4>
-          <button type="button" onClick={() => this.props.closeLocation(this.props.locationProp.id)}>Close it down</button>
           <Link to={`/locations/${this.props.locationProp.id}`}>
             <button>Details</button>
           </Link>
