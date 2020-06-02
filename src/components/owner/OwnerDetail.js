@@ -6,7 +6,8 @@ class OwnerDetail extends Component {
 
   state = {
       name: "",
-      phoneNumber: ""
+      phoneNumber: "",
+      loadingStatus: true
   }
 
   componentDidMount(){
@@ -16,10 +17,18 @@ class OwnerDetail extends Component {
     .then((owner) => {
       this.setState({
         name: owner.name,
-        phoneNumber: owner.phoneNumber
+        phoneNumber: owner.phoneNumber,
+        loadingStatus: false
       });
     });
   }
+
+  handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    this.setState({loadingStatus: true})
+    OwnerManager.delete(this.props.ownerId)
+    .then(() => this.props.history.push("/owners"))
+}
 
   render() {
     return (
@@ -27,6 +36,7 @@ class OwnerDetail extends Component {
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>{this.state.phoneNumber}</p>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
         </div>
       </div>
     );

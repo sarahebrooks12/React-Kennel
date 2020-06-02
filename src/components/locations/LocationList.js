@@ -41,22 +41,11 @@ import React, { Component } from 'react'
         {this.state.locations.map(currentLocationInLoop => { 
             console.log("This is a current Location in the loop", currentLocationInLoop)
             // render an Location card with current Location in loop 
-            return <LocationCard key={currentLocationInLoop.id} locationProp={currentLocationInLoop} closeLocation={this.closeLocation}/>})}
+            return <LocationCard key={currentLocationInLoop.id} locationProp={currentLocationInLoop}/>})}
             </div>
             </>
         )
     }
-    closeLocation = id => {
-        LocationManager.delete(id)
-        .then(() => {
-            LocationManager.getAll()
-          .then((newLocations) => {
-            this.setState({
-                locations: newLocations
-            })
-          })
-        })
-      }
 }
 
 export default LocationList

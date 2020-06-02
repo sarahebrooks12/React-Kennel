@@ -41,22 +41,11 @@ import React, { Component } from 'react'
         {this.state.owners.map(currentOwnerInLoop => { 
             console.log("This is a current Owner in the loop", currentOwnerInLoop)
             // render an Owner card with current Owner in loop 
-            return <OwnerCard key={currentOwnerInLoop.id} ownerProp={currentOwnerInLoop} removeOwner={this.removeOwner}/>})}
+            return <OwnerCard key={currentOwnerInLoop.id} ownerProp={currentOwnerInLoop}/>})}
             </div>
             </>
         )
     }
-    removeOwner = id => {
-        OwnerManager.delete(id)
-        .then(() => {
-            OwnerManager.getAll()
-          .then((newOwners) => {
-            this.setState({
-                owners: newOwners
-            })
-          })
-        })
-      }
 }
 
 export default OwnerList

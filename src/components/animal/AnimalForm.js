@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalForm.css'
 
-
+// loading status disable the button don't let them click it a million times
 class AnimalForm extends Component {
     state = {
         animalName: "",

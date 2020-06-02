@@ -41,7 +41,7 @@ class ApplicationViews extends Component {
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
-              <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+              <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props}/>
             );
           }}
         />
@@ -67,7 +67,7 @@ class ApplicationViews extends Component {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
               <LocationDetail
-                locationId={parseInt(props.match.params.locationId)}
+                locationId={parseInt(props.match.params.locationId)} {...props}
               />
             );
           }}
@@ -94,7 +94,7 @@ class ApplicationViews extends Component {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
               <EmployeeDetail
-                employeeId={parseInt(props.match.params.employeeId)}
+                employeeId={parseInt(props.match.params.employeeId)} {...props}
               />
             );
           }}
@@ -120,7 +120,7 @@ class ApplicationViews extends Component {
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
-              <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} />
+              <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} {...props}/>
             );
           }}
         />
