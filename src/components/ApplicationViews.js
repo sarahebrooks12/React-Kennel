@@ -1,4 +1,4 @@
-import { Route, withRouter, Redirect } from "react-router-dom"
+import { Route, withRouter, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
@@ -14,12 +14,20 @@ import AnimalForm from "./animal/AnimalForm";
 import EmployeeForm from "./employee/EmployeeForm";
 import OwnerForm from "./owner/OwnerForm";
 import Login from "./auth/Login";
+import AnimalEditForm from "./animal/AnimalEditForm";
+import EmployeeEditForm from "./employee/EmployeeEditForm";
+import LocationEditForm from "./locations/LocationEditForm";
+import OwnerEditForm from "./owner/OwnerEditForm";
 
+
+
+
+//...props allows us to redirect
 class ApplicationViews extends Component {
   // as long as there is something in localStorage - return true
   // if nothing in localStorage - return false
   // fat arrow syntax automatically returns
-  isAuthenticated = () => localStorage.getItem("credentials") !== null
+  isAuthenticated = () => localStorage.getItem("credentials") !== null;
 
   render() {
     return (
@@ -38,16 +46,16 @@ class ApplicationViews extends Component {
           exact
           path="/animals"
           render={(props) => {
-            if(this.isAuthenticated()){
-            return <AnimalList {...props} />;
-          } else {
+            if (this.isAuthenticated()) {
+              return <AnimalList {...props} />;
+            } else {
               //redirect to login
-              return <Redirect to="/login" />
+              return <Redirect to="/login" />;
             }
           }}
         />
         <Route
-          path="/animals/:animalId(\d+)"
+         exact path="/animals/:animalId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -56,6 +64,13 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+        {/* : = route parameter (\d+) = must be a digit */}
+        <Route
+          path="/animals/:animalId(\d+)/edit"
+          render={(props) => {
+            return <AnimalEditForm {...props} />;
           }}
         />
         <Route
@@ -71,15 +86,15 @@ class ApplicationViews extends Component {
           exact
           path="/locations"
           render={(props) => {
-            if(this.isAuthenticated()){
-            return <LocationList {...props} />;
-          } else {
-            return <Redirect to="/login" />
-          }
-        }}
+            if (this.isAuthenticated()) {
+              return <LocationList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
         />
         <Route
-          path="/locations/:locationId(\d+)"
+         exact path="/locations/:locationId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -88,6 +103,12 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+         <Route
+          path="/locations/:locationId(\d+)/edit"
+          render={(props) => {
+            return <LocationEditForm {...props} />;
           }}
         />
         <Route
@@ -103,16 +124,15 @@ class ApplicationViews extends Component {
           exact
           path="/employees"
           render={(props) => {
-            if(this.isAuthenticated()){
+            if (this.isAuthenticated()) {
               return <EmployeeList {...props} />;
             } else {
-              return <Redirect to="/login" />
+              return <Redirect to="/login" />;
             }
-            
           }}
         />
         <Route
-          path="/employees/:employeeId(\d+)"
+          exact path="/employees/:employeeId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -121,6 +141,12 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+          <Route
+          path="/employees/:employeeId(\d+)/edit"
+          render={(props) => {
+            return <EmployeeEditForm {...props} />;
           }}
         />
         <Route
@@ -136,16 +162,15 @@ class ApplicationViews extends Component {
           exact
           path="/owners"
           render={(props) => {
-            if(this.isAuthenticated()) {
+            if (this.isAuthenticated()) {
               return <OwnerList {...props} />;
             } else {
-              return <Redirect to="/login" />
+              return <Redirect to="/login" />;
             }
-            
           }}
         />
         <Route
-          path="/owners/:ownerId(\d+)"
+         exact path="/owners/:ownerId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -154,6 +179,12 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+          <Route
+          path="/owners/:ownerId(\d+)/edit"
+          render={(props) => {
+            return <OwnerEditForm {...props} />;
           }}
         />
         <Route

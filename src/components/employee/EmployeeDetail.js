@@ -36,6 +36,8 @@ class EmployeeDetail extends Component {
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
+            <button type="button"
+        onClick={() => {this.props.history.push(`/employees/${this.props.employeeId}/edit`)}}>Edit</button>
         </div>
       </div>
       :
