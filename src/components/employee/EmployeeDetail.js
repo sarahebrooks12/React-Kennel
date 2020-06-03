@@ -3,7 +3,7 @@ import EmployeeManager from '../../modules/EmployeeManager';
 import './EmployeeDetail.css'
 
 class EmployeeDetail extends Component {
-
+  isEmployeeId = () => this.state.name !== undefined
   state = {
       name: "",
       loadingStatus: true
@@ -31,12 +31,15 @@ class EmployeeDetail extends Component {
 
   render() {
     return (
+      this.isEmployeeId() ?
       <div className="card">
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
         </div>
       </div>
+      :
+      <h1>Employee does not exist</h1>
     );
   }
 }

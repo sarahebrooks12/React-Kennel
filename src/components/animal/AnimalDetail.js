@@ -10,6 +10,7 @@ import AnimalManager from '../../modules/AnimalManager';
 import './AnimalDetail.css'
 
 class AnimalDetail extends Component {
+  isAnimalId = () => this.state.name !== undefined
 // loading status - while page is loading = true when page loaded = false then user can interact
     state = {
         name: "",
@@ -39,6 +40,7 @@ class AnimalDetail extends Component {
 
     render() {
       return (
+        this.isAnimalId() ?
         <div className="card">
           <div className="card-content">
             <picture>
@@ -49,6 +51,8 @@ class AnimalDetail extends Component {
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
           </div>
         </div>
+           :          
+             <h1>No Animals Currently at Kennel</h1>
       );
     }
 }

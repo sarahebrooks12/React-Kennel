@@ -3,7 +3,7 @@ import LocationManager from '../../modules/LocationManager';
 import './LocationDetail.css'
 
 class LocationDetail extends Component {
-
+  isLocationId = () => this.state.name !== undefined
   state = {
       name: "",
       address: "",
@@ -31,6 +31,7 @@ class LocationDetail extends Component {
 
   render() {
     return (
+      this.isLocationId() ?
       <div className="card">
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
@@ -38,6 +39,8 @@ class LocationDetail extends Component {
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
         </div>
       </div>
+      :
+      <h1>Not a valid location</h1>
     );
   }
 }
