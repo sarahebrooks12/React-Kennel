@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 // keyword THIS referring to component - refers to whatever component you are currently inside of props
 class AnimalCard extends Component {
+  
   render() {
-    console.log("this is this.props", this.props);
-    console.log("this is this.props.animalProp", this.props.animalProp);
     // props (object) come from somewhere else --- react tools to decide what user sees
     // is like a parameter but you must keep name throughout the app
     // whatever name in parent component has to be named that in child component
     return (
+      
       <div className="card">
         <div className="card-content">
           <picture>
@@ -25,6 +25,7 @@ class AnimalCard extends Component {
           </Link>
         </div>
       </div>
+      
     );
   }
 }

@@ -3,7 +3,7 @@ import OwnerManager from '../../modules/OwnerManager';
 import './OwnerDetail.css'
 
 class OwnerDetail extends Component {
-
+  isOwnerId = () => this.state.name !== undefined
   state = {
       name: "",
       phoneNumber: "",
@@ -32,6 +32,7 @@ class OwnerDetail extends Component {
 
   render() {
     return (
+      this.isOwnerId() ?
       <div className="card">
         <div className="card-content">
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
@@ -39,6 +40,8 @@ class OwnerDetail extends Component {
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
         </div>
       </div>
+      :
+      <h1>Owner does not exist</h1>
     );
   }
 }

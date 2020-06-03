@@ -5,10 +5,10 @@ class Home extends Component {
     return (
       <div class="container-main">
         <div class="section-content">
-          <p>
+          <h3 id="jokes">
             What do you call a pile of kittens?
-            <br />A meowntain.
-          </p>
+            <br /><em>A meowntain.</em>
+          </h3>
         </div>
       </div>
     );
