@@ -28,26 +28,24 @@ import React, { Component } from 'react'
         // console.log("ANIMAL LIST: Render");
 
         return(
+      <>
+      <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {this.props.history.push("/locations/new")}}>
+            Add Location
+        </button>
+      </section>
             <div className="container-cards">
                 {/* forEach doesn't return - map returns a component to render JSX */}
         {this.state.locations.map(currentLocationInLoop => { 
             console.log("This is a current Location in the loop", currentLocationInLoop)
             // render an Location card with current Location in loop 
-            return <LocationCard key={currentLocationInLoop.id} locationProp={currentLocationInLoop} closeLocation={this.closeLocation}/>})}
+            return <LocationCard key={currentLocationInLoop.id} locationProp={currentLocationInLoop}/>})}
             </div>
+            </>
         )
     }
-    closeLocation = id => {
-        LocationManager.delete(id)
-        .then(() => {
-            LocationManager.getAll()
-          .then((newLocations) => {
-            this.setState({
-                locations: newLocations
-            })
-          })
-        })
-      }
 }
 
 export default LocationList

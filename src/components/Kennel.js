@@ -7,7 +7,7 @@ import ApplicationViews from "./ApplicationViews";
 //render method inside of class - returning JSX
 //return should only be JSX - console log outside
 
-// react fragment <> </> instead of div
+// react fragment <> </> instead of div --- doesn't create extra div lets us return just one thing
 class Kennel extends Component {
   // kennelName = "Student Kennels"
   render() {

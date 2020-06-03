@@ -1,14 +1,49 @@
 {
   "animals": [
     {
-      "id": 1,
-      "name": "Doodles",
-      "breed": "Poodle"
-    },
-    {
       "id": 2,
       "name": "Decker",
-      "breed": "German Sheperd"
+      "breed": "German Shepherd"
+    },
+    {
+      "id": 4,
+      "name": "Orby",
+      "breed": "A Cat"
+    },
+    {
+      "id": 5,
+      "name": "Zula",
+      "breed": "A cat"
+    },
+    {
+      "id": 6,
+      "name": "Princess Shithead",
+      "breed": "Spaniel"
+    },
+    {
+      "name": "Mia",
+      "breed": "Mutt",
+      "id": 7
+    },
+    {
+      "name": "Stitch",
+      "breed": "Black Cat",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "name": "Bumpus",
+      "breed": "A Brown Dog"
+    },
+    {
+      "name": "Frodo",
+      "breed": "Maine Coon",
+      "id": 10
+    },
+    {
+      "name": "Doodles",
+      "breed": "Poodle",
+      "id": 11
     }
   ],
   "owners": [
@@ -16,6 +51,36 @@
       "id": 1,
       "name": "Mike Hotchkiss",
       "phoneNumber": "615-555-5555"
+    },
+    {
+      "name": "Swathi Mukkamala",
+      "phoneNumber": "615-555-5552",
+      "id": 2
+    },
+    {
+      "name": "Sarah Hacker",
+      "phoneNumber": "615-555-5552",
+      "id": 3
+    },
+    {
+      "name": "Pat Shaver",
+      "phoneNumber": "615-555-5554",
+      "id": 4
+    },
+    {
+      "name": "Ashon Woodbury",
+      "phoneNumber": "615-555-5556",
+      "id": 5
+    },
+    {
+      "name": "Tommy Spurlock",
+      "phoneNumber": "615-555-5557",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Jimmy Brooks",
+      "address": "615-555-5558"
     }
   ],
   "employees": [
@@ -24,12 +89,12 @@
       "name": "Jordan Castelloe"
     },
     {
-      "id": 2,
-      "name": "Tommy Spurlock"
-    },
-    {
       "id": 3,
       "name": "Sarah Brooks"
+    },
+    {
+      "name": "Angela McKeone",
+      "id": 4
     }
   ],
   "locations": [
@@ -42,6 +107,16 @@
       "id": 2,
       "name": "Nashville North",
       "address": "500 Kitten Way"
+    },
+    {
+      "name": "Nashville West",
+      "address": "500 Bunny Way",
+      "id": 3
+    },
+    {
+      "name": "Nashville East",
+      "address": "500 Fish Way",
+      "id": 4
     }
   ]
 }
