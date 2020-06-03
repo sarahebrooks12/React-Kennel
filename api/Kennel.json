@@ -31,9 +31,9 @@
       "id": 8
     },
     {
+      "id": 9,
       "name": "Bumpus",
-      "breed": "Brown Dog",
-      "id": 9
+      "breed": "A Brown Dog"
     },
     {
       "name": "Frodo",
@@ -66,16 +66,27 @@
       "name": "Pat Shaver",
       "phoneNumber": "615-555-5554",
       "id": 4
+    },
+    {
+      "name": "Ashon Woodbury",
+      "phoneNumber": "615-555-5556",
+      "id": 5
+    },
+    {
+      "name": "Tommy Spurlock",
+      "phoneNumber": "615-555-5557",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Jimmy Brooks",
+      "address": "615-555-5558"
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Jordan Castelloe"
-    },
-    {
-      "id": 2,
-      "name": "Tommy Spurlock"
     },
     {
       "id": 3,

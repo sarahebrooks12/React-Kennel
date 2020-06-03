@@ -27,3 +27,7 @@ class NavBar extends Component {
 }
 
 export default NavBar;
+
+// In the NavBar, highlight the active section. For example, if you are viewing Animals, change the <NavBar> Animals link to lime (you could also disable the ability to click). Since the <NavBar is not part of a route, you will need to export default withRouter(NavBar) in order to have access to the router location properties. Consider how we used loadingStatus in a previous chapter.
+//activeClassName="navbar__link--active"
+//withRouter --- console.log (this.props) figure out what route you are

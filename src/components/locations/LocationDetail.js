@@ -37,6 +37,8 @@ class LocationDetail extends Component {
             <h3><span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>{this.state.address}</p>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Bye Felicia</button>
+            <button type="button"
+        onClick={() => {this.props.history.push(`/locations/${this.props.locationId}/edit`)}}>Edit</button>
         </div>
       </div>
       :
