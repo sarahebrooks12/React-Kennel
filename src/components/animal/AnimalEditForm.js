@@ -1,12 +1,15 @@
 import React, { Component } from "react"
 import AnimalManager from "../../modules/AnimalManager"
 import "./AnimalForm.css"
+import EmployeeManager from "../../modules/EmployeeManager"
 
 class AnimalEditForm extends Component {
     //set the initial state
     state = {
       animalName: "",
       breed: "",
+      employeeId: "",
+      employees: [],
       loadingStatus: true,
     };
 
@@ -25,7 +28,8 @@ class AnimalEditForm extends Component {
       const editedAnimal = {
         id: this.props.match.params.animalId,
         name: this.state.animalName,
-        breed: this.state.breed
+        breed: this.state.breed,
+        employeeId: this.state.employeeId
       };
 //send newly edited animal to API manager then reroute to /animals
       AnimalManager.update(editedAnimal)
@@ -40,6 +44,12 @@ class AnimalEditForm extends Component {
             breed: animal.breed,
             loadingStatus: false,
           });
+      });
+      EmployeeManager.getAll().then((employees) => {
+        console.log(employees);
+        this.setState({
+          employees: employees,
+        });
       });
     }
 // value = pre populated data that the user sees
@@ -68,6 +78,19 @@ class AnimalEditForm extends Component {
                 value={this.state.breed}
               />
               <label htmlFor="breed">Breed</label>
+              <label htmlFor="employeeId">Caretaker</label>
+              <select
+                className="form-control"
+                id="employeeId"
+                value={this.state.employeeId}
+                onChange={this.handleFieldChange}
+              >
+                {this.state.employees.map((employee) => (
+                  <option key={employee.id} value={employee.id}>
+                    {employee.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="alignRight">
               <button
