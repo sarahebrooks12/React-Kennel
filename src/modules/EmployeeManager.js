@@ -31,5 +31,10 @@ export default {
       },
       body: JSON.stringify(editedEmployee),
     }).then((data) => data.json());
-  }
+  },
+  // foreign keys will always utilize expand and embed --- embed looks down --- expand looks up
+  getWithAnimals(id) {
+    return fetch(`${remoteURL}/employees/${id}?_embed=animals`)
+            .then(result => result.json())
+}
 };

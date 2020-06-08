@@ -18,9 +18,7 @@ import AnimalEditForm from "./animal/AnimalEditForm";
 import EmployeeEditForm from "./employee/EmployeeEditForm";
 import LocationEditForm from "./locations/LocationEditForm";
 import OwnerEditForm from "./owner/OwnerEditForm";
-
-
-
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals"
 
 //...props allows us to redirect
 class ApplicationViews extends Component {
@@ -55,7 +53,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-         exact path="/animals/:animalId(\d+)"
+          exact
+          path="/animals/:animalId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -94,7 +93,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-         exact path="/locations/:locationId(\d+)"
+          exact
+          path="/locations/:locationId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -105,7 +105,7 @@ class ApplicationViews extends Component {
             );
           }}
         />
-         <Route
+        <Route
           path="/locations/:locationId(\d+)/edit"
           render={(props) => {
             return <LocationEditForm {...props} />;
@@ -132,7 +132,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          exact path="/employees/:employeeId(\d+)"
+          exact
+          path="/employees/:employeeId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -143,7 +144,7 @@ class ApplicationViews extends Component {
             );
           }}
         />
-          <Route
+        <Route
           path="/employees/:employeeId(\d+)/edit"
           render={(props) => {
             return <EmployeeEditForm {...props} />;
@@ -153,6 +154,12 @@ class ApplicationViews extends Component {
           path="/employees/new"
           render={(props) => {
             return <EmployeeForm {...props} />;
+          }}
+        />
+        <Route
+          path="/employees/:employeeId(\d+)"
+          render={(props) => {
+            return <EmployeeWithAnimals {...props} />;
           }}
         />
 
@@ -170,7 +177,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-         exact path="/owners/:ownerId(\d+)"
+          exact
+          path="/owners/:ownerId(\d+)"
           render={(props) => {
             // Pass the animalId to the AnimalDetailComponent --- \d+ has to be a digit
             return (
@@ -181,7 +189,7 @@ class ApplicationViews extends Component {
             );
           }}
         />
-          <Route
+        <Route
           path="/owners/:ownerId(\d+)/edit"
           render={(props) => {
             return <OwnerEditForm {...props} />;
