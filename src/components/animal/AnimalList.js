@@ -35,6 +35,7 @@ class AnimalList extends Component {
             type="button"
             className="btn"
             onClick={() => {
+              //history.push - pushes the URL to the top of the browser history - changes the URL with what the user sees
               this.props.history.push("/animals/new");
             }}
           >
