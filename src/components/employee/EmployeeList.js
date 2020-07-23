@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 //import the components we will need
-import EmployeeCard from "./EmployeeCard";
+// import EmployeeCard from "./EmployeeCard";
 import EmployeeManager from "../../modules/EmployeeManager";
+import ResourceCard from "../reusables/ResourceCard";
 
 class EmployeeList extends Component {
   //define what this component needs to render
@@ -45,9 +46,10 @@ class EmployeeList extends Component {
             // console.log("This is a current Employee in the loop", currentEmployeeInLoop)
             // render an Employee card with current Employee in loop
             return (
-              <EmployeeCard
+              <ResourceCard
                 key={currentEmployeeInLoop.id}
-                employeeProp={currentEmployeeInLoop}
+                resource={currentEmployeeInLoop}
+                resourceName="employees"
               />
             );
           })}

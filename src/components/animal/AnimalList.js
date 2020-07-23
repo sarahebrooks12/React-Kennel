@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import the components we will need
-import AnimalCard from "./AnimalCard";
+// import AnimalCard from "./AnimalCard";
+import ResourceCard from "../reusables/ResourceCard"
 import AnimalManager from "../../modules/AnimalManager";
 
 class AnimalList extends Component {
@@ -48,9 +49,10 @@ class AnimalList extends Component {
             // console.log("This is a current animal in the loop", currentAnimalInLoop)
             // render an animal card with current animal in loop
             return (
-              <AnimalCard
+              <ResourceCard
                 key={currentAnimalInLoop.id}
-                animalProp={currentAnimalInLoop}
+                resource={currentAnimalInLoop}
+                resourceName="animals"
               />
             );
           })}
